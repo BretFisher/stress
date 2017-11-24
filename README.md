@@ -4,7 +4,7 @@ There's lots of images/repos using `stress` or `stress-ng` but I needed somethin
 that didn't need a custom ENTRYPOINT/CMD to work so it was easy to demo with
 `docker service create`, so here we go:
 
-> Simply running this images various tags, will get you preset cpu/memory stressing output.
+> Simply running this image with various tags will get you pre-set cpu/memory stressing output.
 
 | Image:Tag | Command |
 | --------- | ------- |
