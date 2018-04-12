@@ -18,6 +18,7 @@ that didn't need a custom ENTRYPOINT/CMD to work so it was easy to demo with
 
 ## Example
 
+
 Notice that the task will crash so quickly that it won't "finish" deployment.
 
 ```bash
@@ -29,7 +30,9 @@ verify: Detected task failure
 Operation continuing in background.
 Use `docker service ps w5656w2kynqt4xip0b321d91y` to check progress.
 ```
+
 If I looked at the replica list, you'll see Swarm shutting down out-of-memory tasks and starting new ones
+
 
 ```bash
 docker service ps w5
@@ -40,7 +43,9 @@ yv7eoc5c7n2z         \_ suspicious_lamport.1   bretfisher/stress:512m   linuxkit
 xyutkbaajjc1         \_ suspicious_lamport.1   bretfisher/stress:512m   linuxkit-025000000001   Shutdown            Failed 4 minutes ago        "task: non-zero exit (1)"
 ```
 
+
 If I looked at service logs for just one of those tasks, you'd see it start, consume memory, then crash
+
 
 ```bash
 docker service logs w5 2>&1 | grep yv7eoc5c7n2z
@@ -54,6 +59,7 @@ suspicious_lamport.1.yv7eoc5c7n2z@linuxkit-025000000001    | stress: WARN: [1] (
 suspicious_lamport.1.yv7eoc5c7n2z@linuxkit-025000000001    | stress: FAIL: [1] (421) kill error: No such process
 suspicious_lamport.1.yv7eoc5c7n2z@linuxkit-025000000001    | stress: FAIL: [1] (451) failed run completed in 1s
 ```
+
 
 If I was watching `docker events` I'd see it create the container, start it, have a oom event, then die
 
