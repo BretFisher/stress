@@ -55,3 +55,12 @@ suspicious_lamport.1.yv7eoc5c7n2z@linuxkit-025000000001    | stress: FAIL: [1] (
 suspicious_lamport.1.yv7eoc5c7n2z@linuxkit-025000000001    | stress: FAIL: [1] (451) failed run completed in 1s
 ```
 
+If I was watching `docker events` I'd see it create the container, start it, have a oom event, then die
+
+~ container create ~
+~ network create ~
+~ container start ~
+~ container oom ~
+~ container die ~
+~ network disconnect ~
+~ container destroy ~
